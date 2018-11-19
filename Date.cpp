@@ -18,6 +18,22 @@ int Date::getYear(){
 int Date::getMonth(){
   return month;
 }
+string Date::monthToString(){
+  string[] months = {NULL,
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"};
+  return months[month];
+}
 int Date::getDay(){
   return day;
 }
@@ -39,4 +55,9 @@ int Date::compare(Date other){
     return day-other.getDay();
   }
   return 0;
+}
+
+ostream & operator << (ostream & os, Date & date_t) {
+  os<<date_t.monthToString()<<" "<<date_t.getDay()<<", "<<date_t.getYear<<"\n";
+  return os;
 }
