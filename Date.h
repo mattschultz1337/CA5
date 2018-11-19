@@ -19,8 +19,8 @@ class Date{
     int getMonth();
     int getDay();
     void setDate(int y, int m, int d);
-    string monthToString();
-    ostream & operator << (ostream & os, Date & date_t);
+    std::string monthToString();
+    friend std::ostream & operator << (std::ostream & os, Date & date_t);
 
 };
 #endif

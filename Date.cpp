@@ -19,7 +19,7 @@ int Date::getMonth(){
   return month;
 }
 string Date::monthToString(){
-  string[] months = {NULL,
+  string months[] = {NULL,
     "Jan",
     "Feb",
     "Mar",
@@ -58,6 +58,6 @@ int Date::compare(Date other){
 }
 
 ostream & operator << (ostream & os, Date & date_t) {
-  os<<date_t.monthToString()<<" "<<date_t.getDay()<<", "<<date_t.getYear<<"\n";
+  os<<date_t.monthToString()<<" "<<date_t.getDay()<<", "<<date_t.getYear()<<"\n";
   return os;
 }
