@@ -12,3 +12,4 @@ Date::Date(int y, int m, int d){
   month = m;
   day = d;
 }
+HELP
