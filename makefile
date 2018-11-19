@@ -1,15 +1,15 @@
 #
 # Specifiy the target
-all:	Date
+all:	FlightDiscoverySystem
 
 # Specify the object files that the target depends on
 # Also specify the object files needed to create the executable
-Date:	Date.o
-	g++ Date.o -o Date
+FlightDiscoverySystem:	FlightDiscoverySystem.o
+	g++ FlightDiscoverySystem.o -o FlightDiscoverySystem
 
 # Specify how the object files should be created from source files
-Date.o:	Date.cpp
-	g++ -c Date.cpp
+FlightDiscoverySystem.o:	Date.cpp
+	g++ -c Date.cpp FlightDiscoverySystem.cpp
 
 
 # Specify the object files and executables that are generated
