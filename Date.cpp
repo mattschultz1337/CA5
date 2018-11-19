@@ -19,7 +19,7 @@ int Date::getMonth(){
   return month;
 }
 string Date::monthToString(){
-  string months[] = {NULL,
+  string months[] = {"ERROR",
     "Jan",
     "Feb",
     "Mar",
