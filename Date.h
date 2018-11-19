@@ -15,6 +15,9 @@ class Date{
     Date();
     Date(int y, int m, int d);
     int compare(Date other);
+    int getYear();
+    int getMonth();
+    int getDay();
     void setDate(int y, int m, int d);
 
 
