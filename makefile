@@ -1,11 +1,11 @@
 #
 # Specifiy the target
-all:	FlightDiscoverySystem
+all:	FDS
 
 # Specify the object files that the target depends on
 # Also specify the object files needed to create the executable
-FlightDiscoverySystem:	FlightDiscoverySystem.o
-	g++ FlightDiscoverySystem.o -o FlightDiscoverySystem
+FDS:	FlightDiscoverySystem.o
+	g++ FlightDiscoverySystem.o -o FDS
 
 # Specify how the object files should be created from source files
 FlightDiscoverySystem.o:	Date.cpp
