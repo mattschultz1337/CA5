@@ -5,7 +5,7 @@ all:	Date
 # Specify the object files that the target depends on
 # Also specify the object files needed to create the executable
 Date:	Date.o
-	g++ Date.o  -v -o Date
+	g++ Date.o -o Date
 
 # Specify how the object files should be created from source files
 Date.o:	Date.cpp
