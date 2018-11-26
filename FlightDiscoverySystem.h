@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include"Date.cpp"
+#include "Flight.cpp"
 #include <string>
 
 class FlightDiscoverySystem{
@@ -15,6 +15,7 @@ class FlightDiscoverySystem{
 
   public:
     int main(int argc, char* argv[]);
+    Flight flightIndex(std::string listing);
 };
 
 #endif

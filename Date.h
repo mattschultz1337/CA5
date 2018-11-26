@@ -11,15 +11,18 @@ class Date{
     int year;
     int day;
     int month;
+    int hour;
+    int minute;
   public:
     Date();
-    Date(int y, int m, int d);
+    Date(int h, int min);
     int compare(Date other);
-    int getYear();
-    int getMonth();
-    int getDay();
-    void setDate(int y, int m, int d);
-    std::string monthToString();
+
+    int getHour();
+    int getMinute();
+
+    void setDate(int h, int min);
+    // std::string monthToString();
     friend std::ostream & operator << (std::ostream & os, Date & date_t);
 
 };

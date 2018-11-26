@@ -3,61 +3,63 @@
 #include "Date.h"
 using namespace std;
 Date::Date(){
-  year = 2000;
-  month = 1;
-  day = 1;
+  hour = 0;
+  minute = 0;
 }
-Date::Date(int y, int m, int d){
-  year = y;
-  month = m;
-  day = d;
+Date::Date(int h, int min){
+  hour = h;
+  minute = min;
 }
-int Date::getYear(){
-  return year;
+
+int Date::getHour(){
+  return hour;
 }
-int Date::getMonth(){
-  return month;
+int Date::getMinute(){
+  return minute;
 }
-string Date::monthToString(){
-  string months[] = {"ERROR",
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"};
-  return months[month];
-}
-int Date::getDay(){
-  return day;
-}
-void Date::setDate(int y, int m, int d){
-  year = y;
-  month = m;
-  day = d;
+// string Date::monthToString(){
+//   string months[] = {"ERROR",
+//     "Jan",
+//     "Feb",
+//     "Mar",
+//     "Apr",
+//     "May",
+//     "Jun",
+//     "Jul",
+//     "Aug",
+//     "Sep",
+//     "Oct",
+//     "Nov",
+//     "Dec"};
+//   return months[month];
+// }
+
+void Date::setDate(int h, int min){
+  hour = h;
+  minute = min;
 }
 
 //returns 0 if same Date
 //returns difference between dates. positive if later
 //than other, negative if earlier
 int Date::compare(Date other){
-  if(year != other.getYear()){
-    return year-other.getYear();
-  } else if(month != other.getMonth()){
-    return month-other.getMonth();
-  } else if(day != other.getDay()){
-    return day-other.getDay();
+  // if(year != other.getYear()){
+  //   return year-other.getYear();
+  // } else if(month != other.getMonth()){
+  //   return month-other.getMonth();
+  // } else if(day != other.getDay()){
+  //   return day-other.getDay();
+  // }else
+  if(hour != other.getHour()){
+    return hour-other.getHour();
+  }else if(minute != other.getMinute()){
+    return minute-other.getMinute();
   }
   return 0;
 }
 
 ostream & operator << (ostream & os, Date & date_t) {
-  os<<date_t.monthToString()<<" "<<date_t.getDay()<<", "<<date_t.getYear()<<"\n";
+  // <<date_t.monthToString()<<" "<<date_t.getDay()<<", "<<date_t.getYear()<<
+  os<<date_t.getHour()<<":"<<date_t.getMinute()<<"\n";
   return os;
 }
