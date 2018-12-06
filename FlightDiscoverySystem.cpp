@@ -3,46 +3,36 @@
 #include <fstream>
 #include <stdlib.h>
 #include <cstdlib>
+#include<vector>
 int main(int argc, char* argv[]){
-  Flight lineflight;
+  Flight lineflight = *(new Flight());
   string departs;
   string destination;
+  Date earliestdep;
   Date deptime;
   Date arrtime;
   int cost;
+  string datebefore;
   string line;
+  vector<string> cities;
   ifstream myfile(argv[1], ios::in);
-  if(myfile.is_open())
+  while(!myfile.eof())
   {
     getline(myfile,line);
-    lineflight = flightIndex(line);
-    myfile.close();
-  } else cout << "Unable to open file";
-  cout<<lineflight;
+    lineflight = *(new Flight(line));
+    cities.push_back(lineflight.getDepartureLocation());
+  }
+  myfile.close();
+  for (vector<string>::const_iterator i = cities.begin(); i != cities.end(); ++i){
+    cout << *i << ' ';
+  }
+  cout<<"Enter Departure City: ";
+  cin>>departs;
+  cout<<"\n"<<"Enter Destination City: ";
+  cin>>destination;
+  cout<<"\n"<<"Earliest Departure Time(HH:MMpm/am): ";
+  cin>>datebefore;
+  earliestdep = *(new Date(datebefore));
+
   return 0;
-}
-
-Flight FlightDiscoverySystem::flightIndex(string listing){
-  cout<<listing;
-  string dp = listing.substr(0,listing.find(" "));
-  listing = listing.substr(listing.find(" ")+1);
-  string dt = listing.substr(0,listing.find(" "));
-  listing = listing.substr(listing.find(" ")+1);
-
-  Date dep = *(new Date(stoi(listing.substr(0,listing.find(":"))),stoi(listing.substr(listing.find(":")+1,listing.find(":")+3))));
-  listing = listing.substr(4);
-  if(listing.substr(0,1)=="p"){
-    dep.setDate(dep.getHour()+12,dep.getMinute());
-  }
-  listing = listing.substr(listing.find(" ")+1);
-  Date arr = *(new Date(stoi(listing.substr(0,listing.find(":"))),stoi(listing.substr(listing.find(":")+1,listing.find(":")+3))));
-  listing = listing.substr(4);
-  if(listing.substr(0,1)=="p"){
-    arr.setDate(arr.getHour()+12,arr.getMinute());
-  }
-  listing = listing.substr(listing.find(" ")+1);
-  int price = stoi(listing.substr(listing.find("$")+1));
-
-  Flight retflight = *(new Flight(dp,dt,dep,arr,price));
-  return retflight;
 }

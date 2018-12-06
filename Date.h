@@ -8,16 +8,13 @@
 
 class Date{
   private:
-    int year;
-    int day;
-    int month;
     int hour;
     int minute;
   public:
     Date();
     Date(int h, int min);
     int compare(Date other);
-
+    Date(std::string datebefore);
     int getHour();
     int getMinute();
 

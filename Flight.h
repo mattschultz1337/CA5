@@ -21,6 +21,7 @@ class Flight{
     Date getDeparture();
     Date getArrival();
     int getPrice();
+    Flight(std::string listing);
     friend std::ostream & operator << (std::ostream & os, Flight & flight_t);
 };
 #endif

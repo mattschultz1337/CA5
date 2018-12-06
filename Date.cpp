@@ -10,7 +10,14 @@ Date::Date(int h, int min){
   hour = h;
   minute = min;
 }
-
+Date::Date(string datebefore){
+  hour = stoi(datebefore.substr(0,datebefore.find(":")));
+  datebefore = datebefore.substr(datebefore.find(":")+1);
+  minute = stoi(datebefore.substr(0,1));
+  if(datebefore.find("p")!=-1){
+    hour += 12;
+  }
+}
 int Date::getHour(){
   return hour;
 }

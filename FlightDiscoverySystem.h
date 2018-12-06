@@ -9,13 +9,11 @@
 
 class FlightDiscoverySystem{
   private:
-    std::string deploc;
-    std::string destloc;
-
 
   public:
+
     int main(int argc, char* argv[]);
-    Flight flightIndex(std::string listing);
+
 };
 
 #endif
