@@ -10,7 +10,7 @@ FDS:	FlightDiscoverySystem.o
 
 # Specify how the object files should be created from source files
 FlightDiscoverySystem.o:	Date.cpp
-	g++ -c Date.cpp Flight.cpp FlightDiscoverySystem.cpp
+	g++ -c -g Date.cpp Flight.cpp FlightDiscoverySystem.cpp
 
 
 # Specify the object files and executables that are generated
