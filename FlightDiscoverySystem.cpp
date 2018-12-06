@@ -19,8 +19,13 @@ int main(int argc, char* argv[]){
   while(!myfile.eof())
   {
     getline(myfile,line);
+    if(line!=NULL){
     lineflight = *(new Flight(line));
     cities.push_back(lineflight.getDepartureLocation());
+  } else{
+    break;
+  }
+
   }
   myfile.close();
   for (vector<string>::const_iterator i = cities.begin(); i != cities.end(); ++i){
