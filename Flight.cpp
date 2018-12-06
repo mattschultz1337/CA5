@@ -62,9 +62,9 @@ ostream & operator << (ostream & os, Flight & flight_t) {
   os<<" ";
   os<<flight_t.getDestination();
   os<<" ";
-  // os<<flight_t.getDeparture();
-  // os<<" ";
-  // os<<flight_t.getArrival();
+  flight_t.getDeparture().print();
+  os<<" ";
+  flight_t.getArrival().print();
   os<<" $";
   os<<flight_t.getPrice();
   os<<"\n";

@@ -17,7 +17,7 @@ class Date{
     Date(std::string datebefore);
     int getHour();
     int getMinute();
-
+    void print();
     void setDate(int h, int min);
     // std::string monthToString();
     friend std::ostream & operator << (std::ostream & os, Date & date_t);

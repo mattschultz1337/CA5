@@ -13,7 +13,7 @@ Date::Date(int h, int min){
 Date::Date(string datebefore){
   hour = stoi(datebefore.substr(0,datebefore.find(":")));
   datebefore = datebefore.substr(datebefore.find(":")+1);
-  minute = stoi(datebefore.substr(0,1));
+  minute = stoi(datebefore.substr(0,2));
   if(datebefore.find("p")!=-1){
     hour += 12;
   }
@@ -64,7 +64,12 @@ int Date::compare(Date other){
   }
   return 0;
 }
-
+void Date::print(){
+  if(hour<10)cout<<"0";
+  cout<<hour<<":";
+  if(minute<10)cout<<"0";
+  cout<<minute;
+}
 ostream & operator << (ostream & os, Date & date_t) {
   // <<date_t.monthToString()<<" "<<date_t.getDay()<<", "<<date_t.getYear()<<
   os<<date_t.getHour()<<":"<<date_t.getMinute()<<"\n";

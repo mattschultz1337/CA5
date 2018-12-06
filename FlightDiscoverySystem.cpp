@@ -14,30 +14,67 @@ int main(int argc, char* argv[]){
   int cost;
   string datebefore;
   string line;
+  string objective;
   vector<string> cities;
+  vector<Flight> allflights;
+  vector<vector<string> > graph;
   ifstream myfile(argv[1], ios::in);
+  getline(myfile,line);
   while(!myfile.eof())
   {
-    getline(myfile,line);
-    if(line!=NULL){
-    lineflight = *(new Flight(line));
-    cities.push_back(lineflight.getDepartureLocation());
-  } else{
-    break;
-  }
 
+    lineflight = *(new Flight(line));
+    allflights.push_back(lineflight);
+    if(find(cities.begin(),cities.end(),lineflight.getDepartureLocation())==cities.end()){
+      cities.push_back(lineflight.getDepartureLocation());
+    }
+    getline(myfile,line);
   }
   myfile.close();
   for (vector<string>::const_iterator i = cities.begin(); i != cities.end(); ++i){
-    cout << *i << ' ';
+    cout << *i << '\n';
   }
-  cout<<"Enter Departure City: ";
-  cin>>departs;
-  cout<<"\n"<<"Enter Destination City: ";
-  cin>>destination;
-  cout<<"\n"<<"Earliest Departure Time(HH:MMpm/am): ";
-  cin>>datebefore;
-  earliestdep = *(new Date(datebefore));
+  // for(int i=0;i<allflights.size();i++){
+  //   cout<<allflights.at(i);
+  // }
+  // cout<<"Enter Departure City: ";
+  // cin>>departs;
+  // cout<<"Enter Destination City: ";
+  // cin>>destination;
+  // cout<<"Earliest Departure Time(HH:MMpm/am): ";
+  // cin>>datebefore;
+  // earliestdep = *(new Date(datebefore));
+  // cout<<"Choose Objective(any,early): ";
+  // cin>>objective;
 
-  return 0;
-}
+  for(int c = 0; c<cities.size();c++){
+    vector<string> paths;
+    paths.push_back(cities[c]);
+    for(int f = 0; f<allflights.size();f++){
+      if(allflights[f].getDepartureLocation()==cities[c]){
+        if(find(paths.begin(),paths.end(),allflights.at(f).getDestination())==paths.end()){
+          paths.push_back(allflights.at(f).getDestination());
+        }
+      }
+    graph.push_back(paths);
+    }
+  }
+  //   vector<vector<string> > graph(cities.size());
+  // for (string& city : cities){
+  //   paths.push_back(city);
+  //   for(Flight& flight : allflights){
+  //     if(flight.getDepartureLocation()==city && find(paths.begin(),paths.end(), flight.getDestination())==paths.end()){
+  //       paths.push_back(flight.getDestination());
+  //     }
+  //     graph.push_back(paths);
+  //     paths.clear();
+  //   }
+  // }
+    for(int i=0;i<graph.size();i++){
+      for(int j=0;j<graph.at(i).size();j++){
+        cout<<graph.at(i).at(j)<<"->";
+      }
+      cout<<"\n";
+    }
+    return 0;
+  }
