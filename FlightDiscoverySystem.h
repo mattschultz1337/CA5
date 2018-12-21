@@ -6,7 +6,7 @@
 #include <time.h>
 #include "Flight.cpp"
 #include <string>
-
+#include<vector>
 class FlightDiscoverySystem{
   private:
 
